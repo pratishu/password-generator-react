@@ -40,6 +40,8 @@ function App() {
             <a
               className="font-bold text-sky-700 hover:text-sky-500 duration-150"
               href="https://github.com/pratishu/password-generator-react"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Github
             </a>
