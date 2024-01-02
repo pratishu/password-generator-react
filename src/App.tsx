@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function App() {
   return (
     <div className=" relative h-screen w-full flex justify-center items-center bg-blue-500/10 text-gray-700">
@@ -34,12 +36,12 @@ function App() {
         <div className="flex flex-col justify-center items-center">
           <h3 className=" font-bold text-3xl ">Made with React + Tailwind</h3>
           <p className="font-medium text-2xl">
-            Project Gitub{" "}
+            Project Code on{" "}
             <a
-              className="font-bold text-sky-950 hover:text-sky-600 duration-150"
-              href="#"
+              className="font-bold text-sky-700 hover:text-sky-500 duration-150"
+              href="https://github.com/pratishu/password-generator-react"
             >
-              Link
+              Github
             </a>
           </p>
         </div>
