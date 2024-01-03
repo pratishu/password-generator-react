@@ -5,6 +5,7 @@ function App() {
   const [isNumber, setIsNumber] = useState(false);
   const [isChar, setisChar] = useState(false);
   const [password, setPassword] = useState("");
+  const [genbtn, setGenbtn] = useState(false);
 
   const passwordGenerator = () => {
     let finalPass = "";
@@ -25,7 +26,7 @@ function App() {
 
   useEffect(() => {
     passwordGenerator();
-  }, [length, isNumber, isChar]);
+  }, [length, isNumber, isChar, genbtn]);
 
   return (
     <div className=" relative h-screen w-full flex justify-center items-center bg-gray-50 text-gray-700">
@@ -40,7 +41,7 @@ function App() {
               value={password}
               placeholder="Generated Password"
               readOnly
-              className="outline-none w-3/4 font-medium text-lg rounded-lg shadow-md px-8 py-4"
+              className="outline-none w-3/4 font-medium text-lg rounded-lg shadow-md px-8 py-4 text-green-700"
             />
             <div className="flex justify-evenly w-full px-4">
               <div className="flex flex-col gap-2 w-1/3 justify-center items-center">
@@ -81,7 +82,10 @@ function App() {
               </div>
             </div>
             <div className="flex justify-evenly w-full px-4">
-              <button className="rounded-lg border-2 border-blue-500 hover:scale-105 px-4 py-2 font-bold text-blue-500 shadow-blue-400 hover:bg-blue-500 hover:text-white hover:duration-300">
+              <button
+                onClick={() => setGenbtn((prev) => !prev)}
+                className="rounded-lg border-2 border-blue-500 hover:scale-105 px-4 py-2 font-bold text-blue-500 shadow-blue-400 hover:bg-blue-500 hover:text-white hover:duration-300"
+              >
                 Generate
               </button>
               <button className="rounded-lg border-2 border-green-700 hover:scale-105 px-4 py-2 font-bold  text-green-700 shadow-green-700 hover:bg-green-700 hover:text-white hover:duration-300">
