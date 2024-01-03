@@ -34,14 +34,14 @@ function App() {
         <h1 className="text-5xl text-sky-700 font-bold  px-4 py-2  ">
           Random Password Generator
         </h1>
-        <div className="min-w-80 min-h-44 w-[800px] h-[300px] rounded-lg shadow-lg bg-zinc-100/5 border border-slate-950/5 ">
+        <div className="min-w-80 min-h-44 w-[800px] h-[300px] rounded-lg shadow-lg bg-zinc-100/5 border border-blue-800/10 ">
           <div className="flex flex-col justify-between items-center h-full gap-2 py-8">
             <input
               type="text"
               value={password}
               placeholder="Generated Password"
               readOnly
-              className="outline-none w-3/4 font-medium text-lg rounded-lg shadow-md px-8 py-4 text-green-700"
+              className="outline-none w-3/4 ring-2 ring-blue-400 font-medium text-lg rounded-lg shadow-md px-8 py-4 text-blue-600"
             />
             <div className="flex justify-evenly w-full px-4">
               <div className="flex flex-col gap-2 w-1/3 justify-center items-center">
@@ -88,7 +88,7 @@ function App() {
               >
                 Generate
               </button>
-              <button className="rounded-lg border-2 border-green-700 hover:scale-105 px-4 py-2 font-bold  text-green-700 shadow-green-700 hover:bg-green-700 hover:text-white hover:duration-300">
+              <button className="rounded-lg border-2 border-sky-700 hover:scale-105 px-4 py-2 font-bold  text-sky-700 shadow-sky-700 hover:bg-sky-700 hover:text-white hover:duration-300">
                 Copy
               </button>
             </div>
@@ -115,7 +115,7 @@ function App() {
             </li>
             <li>
               <span className="font-bold text-sky-700">Character</span>: Verify
-              whether Special Character is included or not
+              whether Special Character is included
             </li>
           </ul>
         </div>
