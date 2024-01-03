@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [length, setLength] = useState(12);
@@ -6,13 +6,34 @@ function App() {
   const [isChar, setisChar] = useState(false);
   const [password, setPassword] = useState("");
 
+  const passwordGenerator = () => {
+    let finalPass = "";
+    let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let num = "0123456789";
+    let char = '`~!@#$%^&*()_+={}|[]\\:";<>?,./';
+    let passpool = str;
+    isNumber && (passpool += num);
+    isChar && (passpool += char);
+    for (let i = 0; i < length; i++) {
+      let tempchar = passpool.charAt(
+        Math.floor(Math.random() * passpool.length)
+      );
+      finalPass += tempchar;
+    }
+    setPassword(finalPass);
+  };
+
+  useEffect(() => {
+    passwordGenerator();
+  }, [length, isNumber, isChar]);
+
   return (
     <div className=" relative h-screen w-full flex justify-center items-center bg-gray-50 text-gray-700">
       <div className="flex flex-col w-[1530px] mx-auto h-full items-center justify-evenly gap-2 px-4">
         <h1 className="text-5xl text-sky-700 font-bold  px-4 py-2  ">
           Random Password Generator
         </h1>
-        <div className="min-w-80 min-h-44 w-[800px] h-[300px] rounded-lg shadow-lg bg-zinc-50 border border-slate-950/5 ">
+        <div className="min-w-80 min-h-44 w-[800px] h-[300px] rounded-lg shadow-lg bg-zinc-100/5 border border-slate-950/5 ">
           <div className="flex flex-col justify-between items-center h-full gap-2 py-8">
             <input
               type="text"
@@ -26,7 +47,7 @@ function App() {
                 <input
                   type="range"
                   min={8}
-                  max={30}
+                  max={50}
                   value={length}
                   className="cursor-pointer w-full"
                   onChange={(e) => setLength(Number(e.target.value))} // normal e.target.value gives type error
@@ -63,7 +84,7 @@ function App() {
               <button className="rounded-lg border-2 border-blue-500 hover:scale-105 px-4 py-2 font-bold text-blue-500 shadow-blue-400 hover:bg-blue-500 hover:text-white hover:duration-300">
                 Generate
               </button>
-              <button className="rounded-lg border-2 border-emerald-500 hover:scale-105 px-4 py-2 font-bold text-emerald-500 shadow-emerald-400 hover:bg-emerald-500 hover:text-white hover:duration-300">
+              <button className="rounded-lg border-2 border-green-700 hover:scale-105 px-4 py-2 font-bold  text-green-700 shadow-green-700 hover:bg-green-700 hover:text-white hover:duration-300">
                 Copy
               </button>
             </div>
