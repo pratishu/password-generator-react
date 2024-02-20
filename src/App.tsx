@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function App() {
   const [length, setLength] = useState(12);
@@ -6,6 +6,11 @@ function App() {
   const [isChar, setisChar] = useState(false);
   const [password, setPassword] = useState("");
   const [genbtn, setGenbtn] = useState(false);
+
+  const copyToClipboard = () => {
+    window.navigator.clipboard.writeText(password);
+    alert("password copied to clipboard");
+  };
 
   const passwordGenerator = () => {
     let finalPass = "";
@@ -64,6 +69,7 @@ function App() {
                 <div className="flex items-center font-medium text-blue-400 text-lg gap-2">
                   <input
                     type="checkbox"
+                    id="number"
                     defaultChecked={isNumber}
                     onChange={() => setIsNumber((prev) => !prev)}
                     className="w-6 h-6 "
@@ -88,7 +94,10 @@ function App() {
               >
                 Generate
               </button>
-              <button className="rounded-lg border-2 border-sky-700 hover:scale-105 px-4 py-2 font-bold  text-sky-700 shadow-sky-700 hover:bg-sky-700 hover:text-white hover:duration-300">
+              <button
+                onClick={copyToClipboard}
+                className="rounded-lg border-2 border-sky-700 hover:scale-105 px-4 py-2 font-bold  text-sky-700 shadow-sky-700 hover:bg-sky-700 hover:text-white hover:duration-300"
+              >
                 Copy
               </button>
             </div>
