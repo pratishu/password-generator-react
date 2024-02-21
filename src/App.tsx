@@ -36,17 +36,17 @@ function App() {
   return (
     <div className=" relative h-screen w-full flex justify-center items-center bg-gray-50 text-gray-700">
       <div className="flex flex-col w-[1530px] mx-auto h-full items-center justify-evenly gap-2 px-4">
-        <h1 className="text-5xl text-sky-700 font-bold  px-4 py-2  ">
+        <h1 className="text-5xl text-sky-700 font-bold  px-4 py-2 max-sm:text-2xl max-lg:text-3xl ">
           Random Password Generator
         </h1>
-        <div className="min-w-80 min-h-44 w-[800px] h-[300px] rounded-lg shadow-lg bg-zinc-100/5 border border-blue-800/10 ">
-          <div className="flex flex-col justify-between items-center h-full gap-2 py-8">
+        <div className="container max-w-[800px] h-[300px] rounded-lg shadow-lg bg-zinc-100/5 border border-blue-800/10 ">
+          <div className="flex flex-col justify-between items-center h-full gap-2  max-sm:py-4 max-sm:px-4 px-8 py-4">
             <input
               type="text"
               value={password}
               placeholder="Generated Password"
               readOnly
-              className="outline-none w-3/4 ring-2 ring-blue-400 font-medium text-lg rounded-lg shadow-md px-8 py-4 text-blue-600"
+              className="outline-none w-full ring-2 ring-blue-400 font-medium text-lg rounded-lg shadow-md px-8 py-4 text-blue-600 max-sm:py-2 max-sm:px-4"
             />
             <div className="flex justify-evenly w-full px-4">
               <div className="flex flex-col gap-2 w-1/3 justify-center items-center">
@@ -105,35 +105,45 @@ function App() {
         </div>
         <div>
           <ul className="font-medium text-lg text-gray-600 ">
-            <li className="font-normal mb-8">
+            <li className="font-medium mb-8 sm:text-sm md:text-base 2xl:text-lg max-sm:text-sm">
               You can Select any of the fields, each time you select, new
               password is generated
             </li>
             <li>
               {" "}
-              <span className="font-bold text-sky-700">Generate: </span>Click
-              Generate Button to generate a new password
+              <span className="font-bold text-sky-700 sm:text-sm md:text-base 2xl:text-lg max-sm:text-sm">
+                Generate:{" "}
+              </span>
+              Click Generate Button to generate a new password
             </li>
             <li>
-              <span className="font-bold text-sky-700">Length</span>: Total
-              length of the password
+              <span className="font-bold text-sky-700 sm:text-sm md:text-base 2xl:text-lg max-sm:text-sm">
+                Length
+              </span>
+              : Total length of the password
             </li>
             <li>
-              <span className="font-bold text-sky-700">number</span>: Verify
-              whether number is included{" "}
+              <span className="font-bold text-sky-700 sm:text-sm md:text-base 2xl:text-lg max-sm:text-sm">
+                number
+              </span>
+              : Verify whether number is included{" "}
             </li>
             <li>
-              <span className="font-bold text-sky-700">Character</span>: Verify
-              whether Special Character is included
+              <span className="font-bold text-sky-700 sm:text-sm md:text-base 2xl:text-lg max-sm:text-sm">
+                Character
+              </span>
+              : Verify whether Special Character is included
             </li>
           </ul>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <h3 className=" font-bold text-3xl ">Made with React + Tailwind</h3>
-          <p className="font-medium text-2xl">
+          <h3 className=" font-bold   sm:text-sm md:text-base 2xl:text-3xl max-sm:text-sm">
+            Made with React + Tailwind
+          </h3>
+          <p className="font-medium  sm:text-sm md:text-base 2xl:text-2xl max-sm:text-sm">
             Project Code on{" "}
             <a
-              className="font-bold text-sky-700 hover:text-cyan-400 duration-150"
+              className="font-bold   text-sky-700 hover:text-blue-600 duration-150 sm:text-sm md:text-base 2xl:text-2xl max-sm:text-sm"
               href="https://github.com/pratishu/password-generator-react"
               target="_blank"
               rel="noopener noreferrer"
