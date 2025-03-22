@@ -1,29 +1,34 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [length, setLength] = useState(12);
+  const [length, setLength] = useState(12); // length is predecided, but can be adjusted by slider
   const [isNumber, setIsNumber] = useState(false);
   const [isChar, setisChar] = useState(false);
   const [password, setPassword] = useState("");
   const [genbtn, setGenbtn] = useState(false);
 
+  // this one is copied from chatgpt, typical boilerplate code for copying into clipboard
   const copyToClipboard = () => {
     window.navigator.clipboard.writeText(password);
-    alert("password copied to clipboard");
+    alert("password copied to clipboard"); //TODO: find a way to make it more prettier then just alert : HINT: use shadcn like alert component.
   };
 
   const passwordGenerator = () => {
-    let finalPass = "";
+    let finalPass = ""; // we append tempchar to it in everyloop and return later.
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     let num = "0123456789";
     let char = '`~!@#$%^&*()_+={}|[]\\:";<>?,./';
+
+    //NOTE: by default only string(upper and lowercase) will be selected, but when clicked on checkmark, we also select these two.
     let passpool = str;
     isNumber && (passpool += num);
     isChar && (passpool += char);
     for (let i = 0; i < length; i++) {
+      // on each iteration:  we take char from (0-passpool.length)
       let tempchar = passpool.charAt(
-        Math.floor(Math.random() * passpool.length)
+        Math.floor(Math.random() * passpool.length) // Random number generator boilerplate.Math.floor will floor the value. Math.random will give 0(inclusive)-1(exclusive) number.
       );
+      // adding new character in finalpass
       finalPass += tempchar;
     }
     setPassword(finalPass);
